@@ -1,0 +1,7 @@
+interface:
+  display_name: "事实洁癖"
+  short_description: "电商内容交付前的事实审计"
+  default_prompt: "Use $checking-facts-ecommerce to audit this ecommerce copy for unsupported facts before delivery."
+
+policy:
+  allow_implicit_invocation: true

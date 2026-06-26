@@ -6,16 +6,46 @@
 
 ## 快速安装
 
+### OpenAI Codex（推荐）
+
+Codex 支持本地 Agent Skills。用户级 Skill 推荐安装到 `$HOME/.agents/skills`。
+
+用 Git 克隆安装：
+
+```bash
+mkdir -p "$HOME/.agents/skills"
+git clone https://github.com/Randy0609/checking-facts-ecommerce.git \
+  "$HOME/.agents/skills/checking-facts-ecommerce"
+```
+
+如果你不想保留 Git 仓库，也可以只下载 Skill 文件：
+
+```bash
+mkdir -p "$HOME/.agents/skills/checking-facts-ecommerce/agents"
+
+curl -L https://raw.githubusercontent.com/Randy0609/checking-facts-ecommerce/main/SKILL.md \
+  -o "$HOME/.agents/skills/checking-facts-ecommerce/SKILL.md"
+
+curl -L https://raw.githubusercontent.com/Randy0609/checking-facts-ecommerce/main/agents/openai.yaml \
+  -o "$HOME/.agents/skills/checking-facts-ecommerce/agents/openai.yaml"
+```
+
+验证方式：
+
+```bash
+ls "$HOME/.agents/skills/checking-facts-ecommerce/SKILL.md"
+```
+
+使用方式：
+
+- 在 Codex CLI / IDE 里输入 `/skills` 查看是否出现。
+- 也可以在提示词里直接写 `$checking-facts-ecommerce` 显式调用。
+- 如果没有立刻出现，新开一个 Codex 会话；Codex App 也可以从命令菜单 Reload skills。
+
 ### Claude Code
 ```bash
 mkdir -p ~/.claude/skills/checking-facts-ecommerce
 cp SKILL.md ~/.claude/skills/checking-facts-ecommerce/SKILL.md
-```
-
-### OpenAI Codex
-```bash
-mkdir -p ~/.codex/skills/checking-facts-ecommerce
-cp SKILL.md ~/.codex/skills/checking-facts-ecommerce/SKILL.md
 ```
 
 ### OpenCode / 其他支持 `SKILL.md` 的 Agent 工具
